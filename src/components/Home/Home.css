@@ -1,0 +1,25 @@
+.home-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 20px;
+}
+.left-side{
+   
+}
+.search-input{
+    padding: 15px;
+    width: 300px; 
+    font-size: 20px;
+    margin-right: 5px;
+}
+.seatch-btn{
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    font-size: 25px;
+    padding: 12px;
+   
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
