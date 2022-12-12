@@ -11,12 +11,12 @@ const Player = ({ player, cart, setCart }) => {
             strPlayer,
             idPlayer,
             strCutout,
-            
+
         };
-        if(cart){
+        if (cart) {
             const newPlayer = [...cart, info];
             setCart(newPlayer);
-        }else{
+        } else {
             setCart([info])
             return;
         }
@@ -33,11 +33,19 @@ const Player = ({ player, cart, setCart }) => {
         const prevBookmark = localStorage.getItem("bookmark");
         const oldBookMark = JSON.parse(prevBookmark);
 
-        if(oldBookMark){
-            
-            localStorage.setItem("bookmark", JSON.stringify([...oldBookMark, info]));
-        }else{
-            
+
+        if (oldBookMark) {
+
+            const isExists = oldBookMark.find((p) => p.idPlayer === idPlayer);
+            if (isExists) {
+                alert("already exists");
+                return;
+            }
+            else{
+                localStorage.setItem("bookmark", JSON.stringify([...oldBookMark, info]));
+            }
+        } else {
+
             localStorage.setItem('bookmark', JSON.stringify([info]));
         }
 
@@ -45,7 +53,7 @@ const Player = ({ player, cart, setCart }) => {
 
     return (
         <div className='card' data-aos="fade-up"
-        data-aos-anchor-placement="center-center">
+            data-aos-anchor-placement="center-center">
 
             <img className='player-img' src={strCutout} />
             <h4>{strPlayer}</h4>
@@ -56,7 +64,7 @@ const Player = ({ player, cart, setCart }) => {
                     "slkdfj"
                 }
             </p>
-            <button onClick={ handleAddtoCart} className='card-btn'>Add to Cart</button>
+            <button onClick={handleAddtoCart} className='card-btn'>Add to Cart</button>
             <button className='card-btn'>Details</button>
             <button onClick={handleBookmark} className='card-btn'>BookMark</button>
         </div>
