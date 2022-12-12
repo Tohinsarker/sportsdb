@@ -23,3 +23,16 @@
     cursor: pointer;
     font-weight: 600;
 }
+.cart-info-container{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+}
+.delete-btn{
+    border: none;
+    background: white;
+    padding: 0px 10px;
+    font-size: 25px;
+
+}
